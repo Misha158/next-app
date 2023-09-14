@@ -17,6 +17,9 @@ export const Header = () => {
         <Link className="bg-red-400 p-2 rounded-lg" href={"/page-2"}>
           Page 2
         </Link>
+        <Link className="bg-red-400 p-2 rounded-lg" href={"/todolist"}>
+          Todo List
+        </Link>
       </div>
     </div>
   );
