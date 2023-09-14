@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "antd";
+import { Button, Input } from "antd";
+import FormCreateTodo from "./FormCreateTodo";
+import Todo from "./Todo";
 
 const defaultTodos = [
   {
@@ -19,16 +21,26 @@ const defaultTodos = [
 ];
 
 export const TodoList = () => {
-  const [todos, setTodos] = useState(defaultTodos);
+  const [filteredTodos, setFilteredTodos] = useState(defaultTodos);
+  const [search, setSearch] = useState("");
+
+  const onSearch = (value: any) => {
+    setSearch(value);
+    setFilteredTodos(
+      defaultTodos.filter((todo: any) => todo.title.includes(value))
+    );
+  };
 
   return (
-    <div>
-      {todos.map((todo) => (
-        <>
-          <div key={todo.id}>{todo.title}</div>
-          <Button type="primary">Delete</Button>
-        </>
-      ))}
-    </div>
+    <>
+      <Input
+        value={search}
+        onChange={({ target: { value } }) => onSearch(value)}
+      />
+
+      <Todo filteredTodos={filteredTodos} />
+
+      <FormCreateTodo setTodos={setFilteredTodos} />
+    </>
   );
 };

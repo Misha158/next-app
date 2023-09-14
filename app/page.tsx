@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-start justify-between p-24">
-      {todos.map((todo) => (
+      {todos.map((todo: any) => (
         <div key={todo.id}>
           <div>
             {todo.id}. {todo.title}

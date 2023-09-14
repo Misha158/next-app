@@ -1,17 +1,7 @@
-import React from 'react';
+import React from "react";
 
-const AboutItem = ({params: {id}}) => {
-
-
-    return (
-        <div>
-
-
-
-
-            AboutItem id: {id}
-        </div>
-    );
+const AboutItem = ({ params: { id } }: any) => {
+  return <div>AboutItem id: {id}</div>;
 };
 
-export default AboutItem
+export default AboutItem;
